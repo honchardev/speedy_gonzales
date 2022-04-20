@@ -1,0 +1,44 @@
+{
+    "manifest_version": 3,
+    "name": "Speedy Gonzales",
+    "description": "Change video playback speed on favorite websites",
+    "version": "0.0.1",
+    "icons": {
+        "16": "/logo/logo_16.png",
+        "32": "/logo/logo_32.png",
+        "48": "/logo/logo_48.png",
+        "128": "/logo/logo_128.png"
+    },
+    "action": {
+        "default_title": "Chrome Addon v3 Starter",
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "/logo/logo_16.png",
+            "32": "/logo/logo_32.png",
+            "48": "/logo/logo_48.png",
+            "128": "/logo/logo_128.png"
+        }
+    },
+    "permissions": [
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "foreground.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/*",
+                "https://kinokrad.co/*"
+            ]
+        }
+    ]
+}

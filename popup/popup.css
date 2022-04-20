@@ -1,0 +1,16 @@
+.main {
+    min-width: 200px;
+}
+
+.fullWidth {
+    display: block;
+    width: 100%;
+}
+
+#fixSpeedBtn {
+    background-color: #4CAF50;
+    padding: 10px 30px;
+    color: white;
+    text-decoration: none;
+    border: none;
+}
