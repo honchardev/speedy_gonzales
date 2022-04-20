@@ -1,16 +1,62 @@
-.main {
-    min-width: 200px;
+body {
+    margin: 0px;
 }
 
-.fullWidth {
-    display: block;
-    width: 100%;
+.main {
+    padding: 10px;
+
+    background: #F1FFE7;
+
+    font-family: 'Lato', sans-serif;
 }
+
+/* ============================ */
 
 #fixSpeedBtn {
-    background-color: #4CAF50;
-    padding: 10px 30px;
-    color: white;
-    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    padding: 25px 80px;
+
+    background: #0d8a41;
     border: none;
+    outline: none;
+
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 750;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#fixSpeedBtn:hover {
+    background: #20bd61;
+}
+
+#fixSpeedBtn:active {
+    background: #20bd61;
+    top: 2px;
+}
+
+/* ============================ */
+
+.speed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 45vh;
+}
+
+#speedInputSpan {
+    color: #000000;
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 750;
+    text-transform: uppercase;
 }

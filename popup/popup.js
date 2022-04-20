@@ -21,6 +21,11 @@ chrome.storage.sync.get("settings", ({ settings }) => {
         speedInput.value = speedInputValue;
         debug_msg = "[DEBUG] [popup.js] [chrome.storage.sync.get - settings] speedInput.value updated";
         console.log(debug_msg);
+
+        let speedInputValueSpan = document.getElementById('speedInputValueSpan');
+        speedInputValueSpan.innerHTML = parseFloat(speedInputValue).toFixed(1);
+        debug_msg = "[DEBUG] [popup.js] [chrome.storage.sync.get - settings] speedInputValueSpan.innerHTML updated";
+        console.log(debug_msg);
     }
 
     debug_msg = "[DEBUG] [popup.js] [chrome.storage.sync.get - settings] end";
@@ -87,11 +92,8 @@ speedInput.addEventListener('change', async (event) => {
         let speed = event.target.value;
         settings['speed'] = speed;
         chrome.storage.sync.set({ settings });
-        debug_msg = "[DEBUG] [popup.js] [speedInput.addEventListener - change] [async] [chrome.storage.sync.get - settings] speed setting is";
+        debug_msg = "[DEBUG] [popup.js] [speedInput.addEventListener - change] [async] [chrome.storage.sync.get - settings] setting updated, speed is";
         console.log(debug_msg, speed);
-
-        let speedInputValueSpan = document.getElementById('speedInputValueSpan');
-        speedInputValueSpan.innerHTML = speed;
 
         debug_msg = "[DEBUG] [popup.js] [speedInput.addEventListener - change] [async] [chrome.storage.sync.get - settings] end";
         console.log(debug_msg);
@@ -99,4 +101,10 @@ speedInput.addEventListener('change', async (event) => {
 
     debug_msg = "[DEBUG] [popup.js] [speedInput.addEventListener - change] [async] end";
     console.log(debug_msg);
+});
+
+speedInput.addEventListener('mousemove', (event) => {
+    let speedInputValueSpan = document.getElementById('speedInputValueSpan');
+    let speed = event.target.value;
+    speedInputValueSpan.innerHTML = parseFloat(speed).toFixed(1);
 });

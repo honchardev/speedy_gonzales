@@ -1,21 +1,22 @@
-debugging
-status
-change speed
+status message
 change tagname
-presets
+change player index
+presets -> если попал на сайт, то сохранить нужную скорость (х2, х1.5 итд)
 predefine -> если попал на сайт - сразу скорость!
+? сразу же как изменил - сразу же фикс скорости итд
 tests.html! https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions
 
-сразу же как изменил - сразу же фикс скорости итд
+
 
 cool: https://github.com/SimGus/chrome-extension-v3-starter
-
-
 
 host_permission
 """Then you don't need host_permissions. Those are only required if you want to inject something in a matching page, download from a matching URL, or observe via webRequest and similar API. – """
 https://stackoverflow.com/questions/67963337/do-i-need-to-declare-host-permissions-in-my-chrome-extension
 
-
 onInstalled vs onStartup
 """onInstalled is fired when the extension is first installed, when the extension is updated to a new version, and when Chrome is updated to a new version. onStartup is fired when Chrome is starting up"""
+
+buttons css source
+#4 icon buttons
+https://dev.to/webdeasy/top-20-css-buttons-animations-f41 
