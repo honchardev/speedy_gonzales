@@ -5,7 +5,8 @@ presets -> если попал на сайт, то сохранить нужну
 predefine -> если попал на сайт - сразу скорость!
 ? сразу же как изменил - сразу же фикс скорости итд
 tests.html! https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions
-
+new cool images
+hashwindow.addEventListener('popstate', function(e){console.log('url changed')});
 
 
 cool: https://github.com/SimGus/chrome-extension-v3-starter

@@ -5,14 +5,44 @@ console.log(debug_msg);
 
 //
 
+function youtubeHandler(speed) {
+    document.getElementsByTagName("video")[0].playbackRate = speed;
+}
+
+function kinokradHandler(speed) {
+    document.getElementsByTagName("video")[0].playbackRate = speed;
+}
+
 chrome.storage.sync.get("settings", ({ settings }) => {
     let debug_msg = "[DEBUG] [foreground.js] [chrome.storage.sync.get - settings] start";
     console.log(debug_msg);
 
-    settings['currentWebsite'] = window.location.origin;
-    chrome.storage.sync.set({ settings });
-    debug_msg = "[DEBUG] [foreground.js] [chrome.storage.sync.get - settings] settings updated";
-    console.log(debug_msg, settings);
+    let speed = settings['speed'];
+    debug_msg = "[DEBUG] [foreground.js] [chrome.storage.sync.get - settings] speed should be changed to";
+    console.log(debug_msg, speed);
+
+    try {
+        let debug_msg = "[DEBUG] [foreground.js] [chrome.storage.sync.get - settings] try-catch start";
+        console.log(debug_msg);
+
+        switch (window.location.origin) {
+            case 'https://www.youtube.com':
+                youtubeHandler(speed);
+                break;
+            case 'https://kinokrad.co':
+                kinokradHandler(speed);
+                break;
+
+            default:
+                break;
+        }
+
+        debug_msg = "[DEBUG] [foreground.js] [chrome.storage.sync.get - settings] try-catch end";
+        console.log(debug_msg);
+    } catch (error) {
+        let debug_msg = "[DEBUG] [foreground.js] [chrome.storage.sync.get - settings] exception catched";
+        console.log(debug_msg, error);
+    }
 
     debug_msg = "[DEBUG] [foreground.js] [chrome.storage.sync.get - settings] end";
     console.log(debug_msg);
