@@ -8,12 +8,11 @@ Chrome extension to speed up video playback speed on my favourite websites
     2.2. Customize player index for default handler
     2.3. Enable/disable presets: a checkbox for that
 3. Add tests.html (https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions)
-4. mousemove - сразу же фикс скорости итд
-5. speedInput.addEventListener change - баг не сразу изменяется на фронте
-6. youtube case - look at window change, not page update - hashwindow.addEventListener('popstate', function(e){console.log('url changed')});
-7. same playbackChange for both background.js/foreground.js
-8. remove debugging messages & create staging branch
-9. https://stackoverflow.com/questions/6497548/chrome-extension-make-it-run-every-page-load
+4. mousemove - сразу же фикс скорости (?) (note: mousemove = hover в том числе)
+5. youtube case - look at window change, not page update - hashwindow.addEventListener('popstate', function(e){console.log('url changed')});
+    - https://stackoverflow.com/questions/6497548/chrome-extension-make-it-run-every-page-load
+6. package instead of [same playbackChange for both background.js/foreground.js]
+7. remove debugging messages & create staging branch
 
 # Notes
 1. chrome extension structure: https://github.com/SimGus/chrome-extension-v3-starter
