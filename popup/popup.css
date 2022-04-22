@@ -1,3 +1,5 @@
+/* ===== Blocks ===== */
+
 body {
     margin: 0px;
 }
@@ -10,7 +12,7 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-/* ============================ */
+/* ===== Fix speed Button ===== */
 
 #fixSpeedBtn {
     display: inline-block;
@@ -43,7 +45,7 @@ body {
     top: 2px;
 }
 
-/* ============================ */
+/* ===== Speed Input ===== */
 
 .speed {
     display: flex;

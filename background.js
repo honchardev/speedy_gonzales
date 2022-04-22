@@ -3,7 +3,7 @@
 let debug_msg = "[DEBUG] [background.js] hi";
 console.log(debug_msg);
 
-//
+/* ===== init calls ===== */
 
 chrome.runtime.onInstalled.addListener(() => {
     let debug_msg = "[DEBUG] [background.js] [chrome.runtime.onInstalled] start";
