@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+    <title>Chrome Addon v3: popup</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="controls">
+            <button id="fixSpeedBtn">Speed it up!</button>
+        </div>
+        <div class="settings">
+            <div class="speed">
+                <span id="speedInputSpan">Speed: <span id="speedInputValueSpan">---</span></span>
+                <input type="range" id="speedInput" name="speedInput" min="0.0" max="5.0" step="0.1">
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
