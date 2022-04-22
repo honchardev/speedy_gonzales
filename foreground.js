@@ -37,6 +37,9 @@ chrome.storage.sync.get("settings", ({ settings }) => {
                 break;
         }
 
+        let status_msg = "[SPEEDY GONZALES] [STATUS] [foreground.js] playback speed changed to";
+        console.log(status_msg, speed);
+
         debug_msg = "[DEBUG] [foreground.js] [chrome.storage.sync.get - settings] try-catch end";
         console.log(debug_msg);
     } catch (error) {

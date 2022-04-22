@@ -47,6 +47,9 @@ function setPlaybackRate() {
         debug_msg = "[DEBUG] [popup.js] [setPlaybackRate] [chrome.storage.sync.get - settings] speed changed to";
         console.log(debug_msg, speed);
 
+        let status_msg = "[SPEEDY GONZALES] [STATUS] [popup.js] playback speed changed to";
+        console.log(status_msg, speed);
+
         debug_msg = "[DEBUG] [popup.js] [setPlaybackRate] [chrome.storage.sync.get - settings] end";
         console.log(debug_msg);
     });

@@ -1,8 +1,6 @@
-status message
 change tagname
 change player index
-presets -> если попал на сайт, то сохранить нужную скорость (х2, х1.5 итд)
-predefine -> если попал на сайт - сразу скорость!
+presets setting -> галочка + нужная скорость => если попал на сайт, то сохранить нужную скорость (х2, х1.5 итд)
 ? сразу же как изменил - сразу же фикс скорости итд
 tests.html! https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions
 new cool images
