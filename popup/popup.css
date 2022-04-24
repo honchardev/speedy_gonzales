@@ -17,7 +17,7 @@ body {
 #fixSpeedBtn {
     display: inline-block;
     position: relative;
-    padding: 25px 80px;
+    padding: 25px 85px;
 
     background: #0d8a41;
     border: none;
@@ -52,7 +52,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 45vh;
+    min-height: 35vh;
 }
 
 #speedInputSpan {

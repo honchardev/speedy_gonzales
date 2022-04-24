@@ -26,6 +26,9 @@ window.addEventListener("load", () => {
     let presetInput = document.getElementById("presetInput");
     presetInput.addEventListener("change", (event) => { presetInputChangeHandler(event); });
 
+    let speedSyncInput = document.getElementById("speedSyncInput");
+    speedSyncInput.addEventListener("change", (event) => { speedSyncInputChangeHandler(event); });
+
     debug_msg = "[DEBUG] [popup.js] [window.addEventListener - load] start";
     console.log(debug_msg);
 });
@@ -39,6 +42,7 @@ function initFrontend(settings) {
     initFrontend_speedInput(settings);
     initFrontend_speedInputValueSpan(settings);
     initFrontend_presetInput(settings);
+    initFrontend_speedSyncInput(settings);
 
     debug_msg = "[DEBUG] [popup.js] [initFrontend] end";
     console.log(debug_msg);
@@ -60,6 +64,12 @@ function initFrontend_presetInput(settings) {
     let presetInput = document.getElementById("presetInput");
     let presetEnabled = settings["presetEnabled"];
     presetInput.checked = presetEnabled;
+}
+
+function initFrontend_speedSyncInput(settings) {
+    let speedSyncInput = document.getElementById("speedSyncInput");
+    let speedSyncEnabled = settings["speedSyncEnabled"];
+    speedSyncInput.checked = speedSyncEnabled;
 }
 
 /* ===== fix speed button events handlers ===== */
@@ -166,6 +176,12 @@ function speedInputChangeHandler(event) {
         debug_msg = "[DEBUG] [popup.js] [speedInputChangeHandler] [chrome.storage.sync.get - settings] settings updated, new speed:";
         console.log(debug_msg, speed);
 
+        let speedSyncEnabled = settings["speedSyncEnabled"];
+        if (speedSyncEnabled) {
+            let fixSpeedBtn = document.getElementById("fixSpeedBtn");
+            fixSpeedBtn.dispatchEvent(new CustomEvent("click"));
+        }
+
         debug_msg = "[DEBUG] [popup.js] [speedInputChangeHandler] [chrome.storage.sync.get - settings] end";
         console.log(debug_msg);
     });
@@ -202,5 +218,30 @@ function presetInputChangeHandler(event) {
     });
 
     debug_msg = "[DEBUG] [popup.js] [presetInputChangeHandler] end";
+    console.log(debug_msg);
+}
+
+/* ===== speed sync input events handlers ===== */
+
+function speedSyncInputChangeHandler(event) {
+    let debug_msg = "[DEBUG] [popup.js] [speedSyncInputChangeHandler] start";
+    console.log(debug_msg);
+
+    let isChecked = event.target.checked;
+
+    chrome.storage.sync.get("settings", ({ settings }) => {
+        let debug_msg = "[DEBUG] [popup.js] [speedSyncInputChangeHandler] [chrome.storage.sync.get - settings] start";
+        console.log(debug_msg);
+
+        settings["speedSyncEnabled"] = isChecked;
+        chrome.storage.sync.set({ settings });
+        debug_msg = "[DEBUG] [popup.js] [speedSyncInputChangeHandler] [chrome.storage.sync.get - settings] settings updated, new speedSyncEnabled:";
+        console.log(debug_msg, isChecked);
+
+        debug_msg = "[DEBUG] [popup.js] [speedSyncInputChangeHandler] [chrome.storage.sync.get - settings] end";
+        console.log(debug_msg);
+    });
+
+    debug_msg = "[DEBUG] [popup.js] [speedSyncInputChangeHandler] end";
     console.log(debug_msg);
 }
