@@ -10,7 +10,8 @@ chrome.runtime.onInstalled.addListener(() => {
     console.log(debug_msg);
 
     let settings = {
-        "speed": 2.0
+        "speed": 2.0,
+        "presetEnabled": true
     };
     chrome.storage.sync.set({ settings });
     debug_msg = "[DEBUG] [background.js] [chrome.runtime.onInstalled] settings set:";

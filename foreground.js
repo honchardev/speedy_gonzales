@@ -62,7 +62,16 @@ function presetSpeed() {
         let debug_msg = "[DEBUG] [foreground.js] [presetSpeed] [chrome.storage.sync.get - settings] start";
         console.log(debug_msg);
 
-        handlePlaybackSpeed(settings);
+        let presetEnabled = settings["presetEnabled"];
+        if (presetEnabled) {
+            let debug_msg = "[DEBUG] [foreground.js] [presetSpeed] [chrome.storage.sync.get - settings] presetEnabled is true, proceed to handlePlaybackSpeed";
+            console.log(debug_msg);
+
+            handlePlaybackSpeed(settings);
+        } else {
+            let debug_msg = "[DEBUG] [foreground.js] [presetSpeed] [chrome.storage.sync.get - settings] presetEnabled is false, skip handlePlaybackSpeed";
+            console.log(debug_msg);
+        }
 
         debug_msg = "[DEBUG] [foreground.js] [presetSpeed] [chrome.storage.sync.get - settings] end";
         console.log(debug_msg);

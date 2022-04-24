@@ -23,6 +23,9 @@ window.addEventListener("load", () => {
     speedInput.addEventListener("change", (event) => { speedInputChangeHandler(event); });
     speedInput.addEventListener("mousemove", (event) => { speedInputMousemoveHandler(event); });
 
+    let presetInput = document.getElementById("presetInput");
+    presetInput.addEventListener("change", (event) => { presetInputChangeHandler(event); });
+
     debug_msg = "[DEBUG] [popup.js] [window.addEventListener - load] start";
     console.log(debug_msg);
 });
@@ -35,6 +38,7 @@ function initFrontend(settings) {
 
     initFrontend_speedInput(settings);
     initFrontend_speedInputValueSpan(settings);
+    initFrontend_presetInput(settings);
 
     debug_msg = "[DEBUG] [popup.js] [initFrontend] end";
     console.log(debug_msg);
@@ -50,6 +54,12 @@ function initFrontend_speedInputValueSpan(settings) {
     let speedInputValueSpan = document.getElementById("speedInputValueSpan");
     let speedInputValue = settings["speed"];
     speedInputValueSpan.innerHTML = parseFloat(speedInputValue).toFixed(1);
+}
+
+function initFrontend_presetInput(settings) {
+    let presetInput = document.getElementById("presetInput");
+    let presetEnabled = settings["presetEnabled"];
+    presetInput.checked = presetEnabled;
 }
 
 /* ===== fix speed button events handlers ===== */
@@ -168,4 +178,29 @@ function speedInputMousemoveHandler(event) {
     let speedInputValueSpan = document.getElementById("speedInputValueSpan");
     let speed = event.target.value;
     speedInputValueSpan.innerHTML = parseFloat(speed).toFixed(1);
+}
+
+/* ===== preset input events handlers ===== */
+
+function presetInputChangeHandler(event) {
+    let debug_msg = "[DEBUG] [popup.js] [presetInputChangeHandler] start";
+    console.log(debug_msg);
+
+    let isChecked = event.target.checked;
+
+    chrome.storage.sync.get("settings", ({ settings }) => {
+        let debug_msg = "[DEBUG] [popup.js] [presetInputChangeHandler] [chrome.storage.sync.get - settings] start";
+        console.log(debug_msg);
+
+        settings["presetEnabled"] = isChecked;
+        chrome.storage.sync.set({ settings });
+        debug_msg = "[DEBUG] [popup.js] [presetInputChangeHandler] [chrome.storage.sync.get - settings] settings updated, new presetEnabled:";
+        console.log(debug_msg, isChecked);
+
+        debug_msg = "[DEBUG] [popup.js] [presetInputChangeHandler] [chrome.storage.sync.get - settings] end";
+        console.log(debug_msg);
+    });
+
+    debug_msg = "[DEBUG] [popup.js] [presetInputChangeHandler] end";
+    console.log(debug_msg);
 }
