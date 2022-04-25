@@ -1,0 +1,48 @@
+/* ===== Blocks ===== */
+
+body {
+    margin: 0px;
+}
+
+.settings {
+    padding: 10px;
+
+    background: #F1FFE7;
+
+    font-family: 'Lato', sans-serif;
+}
+
+/* ===== Save button ===== */
+
+#saveBtn {
+    margin-top: 25px;
+
+    display: inline-block;
+    position: relative;
+    padding: 25px 85px;
+
+    background: #0ca34b;
+    border: none;
+    outline: none;
+
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 750;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#saveBtn:hover {
+    background: #20bd61;
+}
+
+#saveBtn:active {
+    background: #20bd61;
+    top: 2px;
+}

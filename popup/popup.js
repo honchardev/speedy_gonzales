@@ -29,7 +29,12 @@ window.addEventListener("load", () => {
     let speedSyncInput = document.getElementById("speedSyncInput");
     speedSyncInput.addEventListener("change", (event) => { speedSyncInputChangeHandler(event); });
 
-    debug_msg = "[DEBUG] [popup.js] [window.addEventListener - load] start";
+    let optionsPageLink = document.getElementById("optionsPageLink");
+    optionsPageLink.addEventListener("click", () => {
+        chrome.runtime.openOptionsPage();
+    });
+
+    debug_msg = "[DEBUG] [popup.js] [window.addEventListener - load] end";
     console.log(debug_msg);
 });
 
@@ -73,51 +78,6 @@ function initFrontend_speedSyncInput(settings) {
 }
 
 /* ===== fix speed button events handlers ===== */
-
-function youtubeHandler(speed) {
-    document.getElementsByTagName("video")[0].playbackRate = speed;
-}
-
-function kinokradHandler(speed) {
-    document.getElementsByTagName("video")[0].playbackRate = speed;
-}
-
-function defaultHandler() {
-    // do nothing
-}
-
-function handlePlaybackSpeed(settings) {
-    let speed = settings["speed"];
-    let debug_msg = "[DEBUG] [popup.js] [handlePlaybackSpeed] speed will be changed to:";
-    console.log(debug_msg, speed);
-
-    try {
-        let debug_msg = "[DEBUG] [popup.js] [handlePlaybackSpeed] try-catch start";
-        console.log(debug_msg);
-
-        switch (window.location.origin) {
-            case "https://www.youtube.com":
-                youtubeHandler(speed);
-                break;
-            case "https://kinokrad.co":
-                kinokradHandler(speed);
-                break;
-
-            default:
-                defaultHandler();
-                break;
-        }
-
-        let status_msg = "[SPEEDY GONZALES] [STATUS] [popup.js] [handlePlaybackSpeed] changed speed to:";
-        console.log(status_msg, speed);
-
-        debug_msg = "[DEBUG] [popup.js] [handlePlaybackSpeed] try-catch end";
-        console.log(debug_msg);
-    } catch (error) {
-        let error_msg = "[SPEEDY GONZALES] [ERROR] [popup.js] [handlePlaybackSpeed] catched exception:";
-        console.log(error_msg, error);
-    }
-}
 
 function handlePlaybackSpeedExecutor() {
     let debug_msg = "[DEBUG] [popup.js] [handlePlaybackSpeedExecutor] start";

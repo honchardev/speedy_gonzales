@@ -36,9 +36,9 @@
                 "foreground.js"
             ],
             "matches": [
-                "https://www.youtube.com/*",
-                "https://kinokrad.co/*"
+                "<all_urls>"
             ]
         }
-    ]
+    ],
+    "options_page": "options/options.html"
 }

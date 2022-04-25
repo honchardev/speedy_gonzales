@@ -2,16 +2,11 @@
 Chrome extension to speed up video playback speed on my favourite websites
 
 # TODO
-1. Advanced options (options.html)
-    2.1. Customize tagname for default handler
-    2.2. Customize player index for default handler
-    2.3. copy all settinsg from popup to options.html
-    2.4. Add advanced options link to main popup (?)
-2. Default handler
-3. Add tests.html (https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions)
-4. youtube case - look at window change, not page update - hashwindow.addEventListener('popstate', function(e){console.log('url changed')});
+1. Copy all remaining settings from popup to options.html
+2. Add tests.html (https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions)
+3. youtube case - look at window change, not page update - hashwindow.addEventListener('popstate', function(e){console.log('url changed')});
     - https://stackoverflow.com/questions/6497548/chrome-extension-make-it-run-every-page-load
-5. package instead of [same playbackChange for both background.js/foreground.js]
+4. publish extension
 
 # Notes
 1. chrome extension structure: https://github.com/SimGus/chrome-extension-v3-starter
@@ -26,6 +21,9 @@ Chrome extension to speed up video playback speed on my favourite websites
     - onStartup
         - https://developer.chrome.com/docs/extensions/reference/runtime/#event-onStartup
         - "Fired when a profile that has this extension installed first starts up. This event is not fired when an incognito profile is started, even if this extension is operating in 'split' incognito mode."
+4. options page
+    - https://developer.chrome.com/docs/extensions/mv3/options/
+        - note: options_ui, "open_in_tab": false
 
 # Borrowings
 1. buttons css source:

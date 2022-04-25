@@ -17,8 +17,18 @@ function kinokradHandler(speed) {
     document.getElementsByTagName("video")[0].playbackRate = speed;
 }
 
-function defaultHandler() {
-    // do nothing
+function defaultHandler(settings) {
+    let speed = settings["speed"];
+    let playerTag = settings["defaultHandler"]["playerTag"];
+    let playerIndex = settings["defaultHandler"]["playerIndex"];
+
+    let players = document.getElementsByTagName(playerTag);
+    if (players.length > 0) {
+        players[playerIndex].playbackRate = speed;
+    } else {
+        let debug_msg = "[DEBUG] [foreground.js] [defaultHandler] ignore next message about speed change";
+        console.log(debug_msg);
+    }
 }
 
 function handlePlaybackSpeed(settings) {
@@ -39,8 +49,12 @@ function handlePlaybackSpeed(settings) {
                 break;
 
             default:
-                defaultHandler();
-                break;
+                defaultHandler(settings);
+
+                let debug_msg = "[DEBUG] [foreground.js] [handlePlaybackSpeed] try-catch end (return)";
+                console.log(debug_msg);
+        
+                return;
         }
 
         let status_msg = "[SPEEDY GONZALES] [STATUS] [foreground.js] [handlePlaybackSpeed] changed speed to:";
@@ -57,6 +71,18 @@ function handlePlaybackSpeed(settings) {
 function presetSpeed() {
     let debug_msg = "[DEBUG] [foreground.js] [presetSpeed] start";
     console.log(debug_msg);
+
+    let favouriteWebsites = [
+        "https://www.youtube.com",
+        "https://kinokrad.co"
+    ];
+    if (!favouriteWebsites.includes(window.location.origin)) {
+        let debug_msg = "[DEBUG] [foreground.js] [presetSpeed] current website is not one of favourite ones, skip presetSpeed";
+        console.log(debug_msg);
+
+        debug_msg = "[DEBUG] [foreground.js] [presetSpeed] end";
+        console.log(debug_msg);
+    }
 
     chrome.storage.sync.get("settings", ({ settings }) => {
         let debug_msg = "[DEBUG] [foreground.js] [presetSpeed] [chrome.storage.sync.get - settings] start";
