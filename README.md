@@ -6,7 +6,6 @@ Chrome extension to speed up video playback speed on my favourite websites
 2. Add tests.html (https://stackoverflow.com/questions/2869827/how-to-test-chrome-extensions)
 3. youtube case - look at window change, not page update - hashwindow.addEventListener('popstate', function(e){console.log('url changed')});
     - https://stackoverflow.com/questions/6497548/chrome-extension-make-it-run-every-page-load
-4. publish extension
 
 # Notes
 1. chrome extension structure: https://github.com/SimGus/chrome-extension-v3-starter
@@ -24,6 +23,9 @@ Chrome extension to speed up video playback speed on my favourite websites
 4. options page
     - https://developer.chrome.com/docs/extensions/mv3/options/
         - note: options_ui, "open_in_tab": false
+5. publish to Chrome Web Store:
+    - create developer account: https://developer.chrome.com/docs/webstore/register/
+    - publish to CWS: https://developer.chrome.com/docs/webstore/publish/
 
 # Borrowings
 1. buttons css source:
